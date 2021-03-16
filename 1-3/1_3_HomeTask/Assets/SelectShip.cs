@@ -14,33 +14,16 @@ public class SelectShip : MonoBehaviour
 
     public void Next()
     {
-        try
-        {
-            ships[current].SetActive(false);
-            ships[++current].SetActive(true);
-        }
-        catch(System.ArgumentOutOfRangeException)
-        {
-            current = 0;
-            ships[current].SetActive(true);
-            ships[ships.Count - 1].SetActive(false);
-            
-        }
+        ships[current].SetActive(false);
+        current = (int)Mathf.Repeat(++current, ships.Count);
+        ships[current].SetActive(true);
     }
 
     public void Previous()
     {
-        try
-        {
-            ships[current].SetActive(false);
-            ships[--current].SetActive(true);
-        }
-        catch(System.ArgumentOutOfRangeException)
-        {
-            current = ships.Count - 1;
-            ships[0].SetActive(false);
-            ships[current].SetActive(true);
-        }
+        ships[current].SetActive(false);
+        current = (int)Mathf.Repeat(--current, ships.Count);
+        ships[current].SetActive(true);
     }
 
     public void ChangeColor(Texture color)
