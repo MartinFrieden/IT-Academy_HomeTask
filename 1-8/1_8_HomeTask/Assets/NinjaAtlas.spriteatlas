@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NinjaAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 4436e8c459c32e04d8dc48d6a71b641a, type: 3}
+    - {fileID: 2800000, guid: 396f8c0b77a13704e929b2db271b779b, type: 3}
+    - {fileID: 2800000, guid: ca0b169756991f24b9185ff73a759659, type: 3}
+    - {fileID: 2800000, guid: 8704241bd11e6d042aca7b313cc53850, type: 3}
+    - {fileID: 2800000, guid: 3940594e6ddb3064c856f526fa052133, type: 3}
+    - {fileID: 2800000, guid: 007c66175e3908e41b0830a5450b17b2, type: 3}
+    - {fileID: 2800000, guid: 58d49204097241443aa7a30b0c9f9565, type: 3}
+    - {fileID: 2800000, guid: dbf49242e3374324e990a2f7bd03f8db, type: 3}
+    - {fileID: 2800000, guid: aab7208b2d649734f902b47393ae4397, type: 3}
+    - {fileID: 2800000, guid: 498675c0301572e448f1deebd1738560, type: 3}
+    - {fileID: 2800000, guid: ea48ad20348cabe49b9bf31e1fef7ee6, type: 3}
+    - {fileID: 2800000, guid: 400fb6f27ca75ea46b693b26d21fc095, type: 3}
+    - {fileID: 2800000, guid: 15b90cb4caeeab943b70202f9f7a27f8, type: 3}
+    - {fileID: 2800000, guid: 2c2eeea42d993e54d83c5120079a1739, type: 3}
+    - {fileID: 2800000, guid: 2f4894a46d16ac141b518ffb6acc54ad, type: 3}
+    - {fileID: 2800000, guid: 40012dc8a50aed340bb21d458f30e5e5, type: 3}
+    - {fileID: 2800000, guid: 07df4c2dc85245849829a576bfc86f85, type: 3}
+    totalSpriteSurfaceArea: 8912896
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: ea48ad20348cabe49b9bf31e1fef7ee6, type: 3}
+  - {fileID: 21300000, guid: 498675c0301572e448f1deebd1738560, type: 3}
+  - {fileID: 21300000, guid: dbf49242e3374324e990a2f7bd03f8db, type: 3}
+  - {fileID: 21300000, guid: 400fb6f27ca75ea46b693b26d21fc095, type: 3}
+  - {fileID: 21300000, guid: 58d49204097241443aa7a30b0c9f9565, type: 3}
+  - {fileID: 21300000, guid: 2f4894a46d16ac141b518ffb6acc54ad, type: 3}
+  - {fileID: 21300000, guid: 2c2eeea42d993e54d83c5120079a1739, type: 3}
+  - {fileID: 21300000, guid: 15b90cb4caeeab943b70202f9f7a27f8, type: 3}
+  - {fileID: 21300000, guid: 4436e8c459c32e04d8dc48d6a71b641a, type: 3}
+  - {fileID: 21300000, guid: 007c66175e3908e41b0830a5450b17b2, type: 3}
+  - {fileID: 21300000, guid: ca0b169756991f24b9185ff73a759659, type: 3}
+  - {fileID: 21300000, guid: 40012dc8a50aed340bb21d458f30e5e5, type: 3}
+  - {fileID: 21300000, guid: 396f8c0b77a13704e929b2db271b779b, type: 3}
+  - {fileID: 21300000, guid: 8704241bd11e6d042aca7b313cc53850, type: 3}
+  - {fileID: 21300000, guid: aab7208b2d649734f902b47393ae4397, type: 3}
+  - {fileID: 21300000, guid: 07df4c2dc85245849829a576bfc86f85, type: 3}
+  - {fileID: 21300000, guid: 3940594e6ddb3064c856f526fa052133, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - SNinja_run 05
+  - SNinja_run 04
+  - SNinja_run 02
+  - SNinja_run 06
+  - SNinja_run 01
+  - SNinja_run 09
+  - SNinja_run 08
+  - SNinja_run 07
+  - SNinja_idle 1
+  - SNinja_idle 6
+  - SNinja_idle 3
+  - SNinja_run 10
+  - SNinja_idle 2
+  - SNinja_idle 4
+  - SNinja_run 03
+  - SNinja_run 11
+  - SNinja_idle 5
+  m_Tag: NinjaAtlas
+  m_IsVariant: 0
