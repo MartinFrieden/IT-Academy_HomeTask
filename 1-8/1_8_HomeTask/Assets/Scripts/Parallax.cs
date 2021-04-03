@@ -8,14 +8,13 @@ public class Parallax : MonoBehaviour
     public GameObject[]     panels;
     public float            scrollSpeed;
     private float           panelWight;
-    public float depth;
+    private float depth;
     // Start is called before the first frame update
     void Start()
     {
-        panelWight = panels[0].transform.localScale.x;
-        panels[0].transform.position = new Vector3(0,0,depth);
-        panels[1].transform.position = new Vector3(panelWight, 0,depth);
-        panels[2].transform.position = new Vector3(-panelWight, 0, depth);
+        panelWight = panels[0].GetComponent<SpriteRenderer>().size.x;
+        panels[0].transform.position = new Vector3(0,0);
+        panels[1].transform.position = new Vector3(panelWight, 0);
     }
 
     // Update is called once per frame
@@ -24,17 +23,15 @@ public class Parallax : MonoBehaviour
         if (Input.touchCount>0 && Input.GetTouch(0).position.x > Screen.width / 2)
         {
             float tX, tY = 0;
-            tX = Time.time * -scrollSpeed % panelWight + (panelWight * 0.5f);
-            panels[0].transform.position = new Vector3(tX, tY, depth);
+            tX = Time.time * -scrollSpeed % panelWight + (panelWight);
+            panels[0].transform.position = new Vector2(tX, tY);
             if (tX >= 0)
             {
-                panels[1].transform.position = new Vector3(tX - panelWight, tY,depth);
-                panels[2].transform.position = new Vector3(tX + panelWight, tY, depth);
+                panels[1].transform.position = new Vector2(tX - panelWight, tY);
             }
             else
             {
-                panels[1].transform.position = new Vector3(tX + panelWight, tY, depth);
-                panels[2].transform.position = new Vector3(tX - panelWight, tY, depth);
+                panels[1].transform.position = new Vector2(tX + panelWight, tY);
             }
         }
         else if (Input.touchCount > 0 && Input.GetTouch(0).position.x < Screen.width / 2)
@@ -42,16 +39,14 @@ public class Parallax : MonoBehaviour
             float tX, tY = 0;
             tX = Time.time * scrollSpeed % panelWight - (panelWight * 0.5f);
 
-            panels[0].transform.position = new Vector3(tX, tY,depth);
+            panels[0].transform.position = new Vector2(tX, tY);
             if (tX >= 0)
             {
-                panels[1].transform.position = new Vector3(tX - panelWight, tY, depth);
-                panels[2].transform.position = new Vector3(tX + panelWight, tY, depth);
+                panels[1].transform.position = new Vector3(tX - panelWight, tY);
             }
             else
             {
-                panels[1].transform.position = new Vector3(tX + panelWight, tY, depth);
-                panels[2].transform.position = new Vector3(tX - panelWight, tY, depth);
+                panels[1].transform.position = new Vector3(tX + panelWight, tY);
             }
         }
         
