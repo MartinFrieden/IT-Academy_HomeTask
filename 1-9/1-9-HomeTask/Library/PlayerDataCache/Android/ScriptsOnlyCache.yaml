@@ -669,4 +669,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/IAcademy/1_9/1_9_2_HomeTask/1_9_HomeTask/1-9.apk
+  playerPath: D:/IAcademy/Repositories/1-9/1-9-HomeTask/1-9.apk
