@@ -69,7 +69,7 @@ public class CharController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         //случайная атака
-        if (Input.GetMouseButtonDown(0) && !isSpawn && !isJumping)
+        if (Input.GetMouseButtonDown(0) && !isSpawn && !isJumping && !isDead)
         {
             isHit = true;
             hitIndex = Random.Range(0,5);
