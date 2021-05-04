@@ -2,29 +2,38 @@
 
 public class GranateController : MonoBehaviour
 {
-    public GameObject particleBang;
+    public ParticleSystem particleBang;
     //сила взрыва
     public float explosionForce;
 
-    void Start()
-    {
-    }
 
     public void OnCollisionEnter(Collision collision)
     {
-        Instantiate(particleBang, this.gameObject.transform.position, Quaternion.identity);
+        GameObject soundGO = AudioManager.instance.GetPooledObject(AudioManager.instance.BulletsSound);
+        soundGO.transform.position = gameObject.transform.position;
+        soundGO.GetComponent<SoundControl>().clipToPlayStart = AudioManager.instance.explosionSound;
+        soundGO.SetActive(true);
+        particleBang.Play(true);
         //взрыв
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, 10f);
         foreach (Collider hit in colliders)
-        {
+        {   
             //исключаем влияние взрыва на саму гранату
-            if (hit.tag != "Granate" || hit.tag != "Player")
+            if (!hit.CompareTag("Granate") && !hit.CompareTag("Player"))
             {
                 Rigidbody rb = hit.GetComponent<Rigidbody>();
                 if (rb != null)
                     rb.AddExplosionForce(explosionForce, this.transform.position, 10, 1, ForceMode.Impulse);
             }
         }
-        Destroy(this.gameObject);
+        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        gameObject.GetComponent<Collider>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        particleBang.Stop(true);
     }
 }

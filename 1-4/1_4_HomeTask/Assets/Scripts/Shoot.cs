@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+
+
     //cписок снарядов
     public List<GameObject> projectiles;
     //текущий снаряд
@@ -26,7 +28,7 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) 
         {
-            shoot();
+            shoot?.Invoke();
         }
     }
 
@@ -65,29 +67,32 @@ public class Shoot : MonoBehaviour
     //высрел пулей
     public void ShootGun()
     {
-        GameObject projGO = Instantiate<GameObject>(currentProjectile);
+        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.instance.Bullets);
+        GameObject soundGO = AudioManager.instance.GetPooledObject(AudioManager.instance.BulletsSound);
 
         projGO.transform.position = startPos.position;
+        soundGO.transform.position = startPos.position;
         projGO.transform.rotation = startPos.rotation;
+        soundGO.GetComponent<SoundControl>().clipToPlayStart = AudioManager.instance.bulletStartSound;
+        projGO.SetActive(true);
+        soundGO.SetActive(true);
 
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
-
-        rigidB.AddForce(projGO.transform.forward*5000, ForceMode.Force);
-
-        Destroy(projGO, 5);
+        rigidB.AddForce(projGO.transform.forward*2000, ForceMode.Force);
         Debug.Log("Shoot Gun");
     }
 
     //бросок гранаты
     public void ShootGranate()
     {
-        GameObject projGO = Instantiate<GameObject>(currentProjectile);
+        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.instance.Granates);
 
         projGO.transform.position = startPos.position;
         projGO.transform.rotation = startPos.rotation;
+        projGO.SetActive(true);
 
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
-
+        rigidB.velocity = Vector3.zero;
         rigidB.AddForce((projGO.transform.forward+projGO.transform.up) * 5, ForceMode.Impulse);
 
         Debug.Log("Shoot Granate");
@@ -96,10 +101,11 @@ public class Shoot : MonoBehaviour
     //бросок мячика
     public void ShootBall()
     {
-        GameObject projGO = Instantiate<GameObject>(currentProjectile);
+        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.instance.Balls);
 
         projGO.transform.position = startPos.position;
         projGO.transform.rotation = startPos.rotation;
+        projGO.SetActive(true);
 
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
 

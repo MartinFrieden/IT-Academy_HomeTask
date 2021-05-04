@@ -9548,6 +9548,7 @@ GameObject:
   - component: {fileID: 378933523852450073}
   - component: {fileID: 2792488851404776523}
   - component: {fileID: 4647733786581511070}
+  - component: {fileID: -2063330648381783568}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -9663,3 +9664,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleTouch: {fileID: 1533138625715334, guid: 61bb62591466c3649bdf4905822d72f6,
     type: 3}
+--- !u!114 &-2063330648381783568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006828705994246489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443f628c7724c424b84d184dfa1db140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRelease: 5
