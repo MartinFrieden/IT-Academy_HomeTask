@@ -3,12 +3,6 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-
-
-    //cписок снарядов
-    public List<GameObject> projectiles;
-    //текущий снаряд
-    GameObject currentProjectile;
     //позиция выстрела
     public Transform startPos;
 
@@ -18,7 +12,6 @@ public class Shoot : MonoBehaviour
 
     void Start()
     {
-        currentProjectile = null;
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
     }
@@ -38,19 +31,13 @@ public class Shoot : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Gun":
-                currentProjectile = projectiles[0];
-                shoot += ShootGun;
-                Debug.Log(currentProjectile.name);
+                shoot = ShootGun;
                 break;
             case "Granate":
-                currentProjectile = projectiles[1];
-                shoot += ShootGranate;
-                Debug.Log(currentProjectile.name);
+                shoot = ShootGranate;
                 break;
             case "Ball":
-                currentProjectile = projectiles[2];
-                shoot += ShootBall;
-                Debug.Log(currentProjectile.name);
+                shoot = ShootBall;
                 break;
             default:
                 break;
@@ -60,57 +47,45 @@ public class Shoot : MonoBehaviour
     //при отходе от стенда убрать снаряды
     public void OnTriggerExit(Collider other)
     {
-        currentProjectile = null;
         shoot = null;
     }
 
     //высрел пулей
     public void ShootGun()
     {
-        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.instance.Bullets);
-        GameObject soundGO = AudioManager.instance.GetPooledObject(AudioManager.instance.BulletsSound);
+        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.Projectiles.bullets);
+        AudioManager.instance.PlaySound(AudioManager.Sounds.bulletStart, gameObject.transform.position);
 
         projGO.transform.position = startPos.position;
-        soundGO.transform.position = startPos.position;
         projGO.transform.rotation = startPos.rotation;
-        soundGO.GetComponent<SoundControl>().clipToPlayStart = AudioManager.instance.bulletStartSound;
         projGO.SetActive(true);
-        soundGO.SetActive(true);
-
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
         rigidB.AddForce(projGO.transform.forward*2000, ForceMode.Force);
-        Debug.Log("Shoot Gun");
     }
 
     //бросок гранаты
     public void ShootGranate()
     {
-        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.instance.Granates);
+        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.Projectiles.granates);
 
         projGO.transform.position = startPos.position;
         projGO.transform.rotation = startPos.rotation;
         projGO.SetActive(true);
-
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
         rigidB.velocity = Vector3.zero;
         rigidB.AddForce((projGO.transform.forward+projGO.transform.up) * 5, ForceMode.Impulse);
-
-        Debug.Log("Shoot Granate");
     }
 
     //бросок мячика
     public void ShootBall()
     {
-        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.instance.Balls);
+        GameObject projGO = BulletManager.instance.GetPooledObject(BulletManager.Projectiles.balls);
 
         projGO.transform.position = startPos.position;
         projGO.transform.rotation = startPos.rotation;
         projGO.SetActive(true);
-
         Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
 
         rigidB.AddForce((projGO.transform.forward + projGO.transform.up) * 5, ForceMode.Impulse);
-        Debug.Log("Shoot Ball");
     }
-
 }

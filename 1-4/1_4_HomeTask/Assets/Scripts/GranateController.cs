@@ -5,14 +5,9 @@ public class GranateController : MonoBehaviour
     public ParticleSystem particleBang;
     //сила взрыва
     public float explosionForce;
-
-
     public void OnCollisionEnter(Collision collision)
     {
-        GameObject soundGO = AudioManager.instance.GetPooledObject(AudioManager.instance.BulletsSound);
-        soundGO.transform.position = gameObject.transform.position;
-        soundGO.GetComponent<SoundControl>().clipToPlayStart = AudioManager.instance.explosionSound;
-        soundGO.SetActive(true);
+        AudioManager.instance.PlaySound(AudioManager.Sounds.explosion, gameObject.transform.position);
         particleBang.Play(true);
         //взрыв
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, 10f);

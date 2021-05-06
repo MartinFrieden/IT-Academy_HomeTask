@@ -7,16 +7,15 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject soundGO = AudioManager.instance.GetPooledObject(AudioManager.instance.BulletsSound);
-        soundGO.transform.position = gameObject.transform.position;
-        soundGO.GetComponent<SoundControl>().clipToPlayStart = AudioManager.instance.bulletEndSound;
-        soundGO.SetActive(true);
+
+            AudioManager.instance.PlaySound(AudioManager.Sounds.bulletEnd, gameObject.transform.position);
+
         gameObject.GetComponent<Collider>().enabled = false;
         effect.Play(true);
     }
 
     private void OnEnable()
-    {
+    {  
         gameObject.GetComponent<Collider>().enabled = true;
         effect.Play(true);
         Rigidbody rigidB = gameObject.GetComponent<Rigidbody>();

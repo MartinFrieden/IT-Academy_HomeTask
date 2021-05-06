@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParticleController : MonoBehaviour
 {
     // Start is called before the first frame update
+    [System.Obsolete]
     void Start()
     {
         var particles = GetComponent<ParticleSystem>();

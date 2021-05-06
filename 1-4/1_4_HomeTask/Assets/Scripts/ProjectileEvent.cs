@@ -10,10 +10,6 @@ public class ProjectileEvent : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        foreach (var item in OnRelease.GetInvocationList())
-        {
-            Debug.Log("Podpisota " + item);
-        }
         StartCoroutine(StartRelease());
     }
 
