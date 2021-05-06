@@ -12,14 +12,14 @@ public class BulletManager : Singleton<BulletManager>
        balls
    }
 
-    
-    public int amountToPool = 10;
 
-    public GameObject prefabBullet;
- 
-    public GameObject prefabGranate;
+    [SerializeField] int amountToPool = 10;
 
-    public GameObject prefabBall;
+    [SerializeField] GameObject prefabBullet;
+
+    [SerializeField] GameObject prefabGranate;
+
+    [SerializeField] GameObject prefabBall;
 
     Dictionary<Projectiles, List<GameObject>> Pools;
 

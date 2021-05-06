@@ -13,16 +13,16 @@ public class AudioManager : Singleton<AudioManager>
         barrel
     }
 
-    public int amountToPool = 10;
-    public AudioClip bulletStartSound;
-    public AudioClip bulletEndSound;
-    public AudioClip explosionSound;
-    public AudioClip ballSound;
-    public AudioClip barrelSound;
+    [SerializeField] int amountToPool = 10;
+    [SerializeField] AudioClip bulletStartSound;
+    [SerializeField] AudioClip bulletEndSound;
+    [SerializeField] AudioClip explosionSound;
+    [SerializeField] AudioClip ballSound;
+    [SerializeField] AudioClip barrelSound;
 
     Dictionary<Sounds, AudioClip> soundsDict;
 
-    public GameObject prefabBulletSound;
+    [SerializeField] GameObject prefabBulletSound;
 
     List<GameObject> pooledBulletsSounds;
 
